@@ -1,8 +1,8 @@
 ---
-title: "MovieLens Capstone: Exploring, Modeling, and Predicting Movie Ratings with Advanced Data Science Techniques"
-course: "HarvardX Professional Data Science"
+title: 'MovieLens Capstone: Exploring, Modeling, and Predicting Movie Ratings with
+  Advanced Data Science Techniques'
 author: "Benny Istanto (bennyistanto@gmail.com)"
-date: "September 2024"
+date: "25 September 2024"
 output:
   pdf_document:
     toc: true
@@ -10,9 +10,13 @@ output:
     number_sections: true
     highlight: pygments
     keep_tex: true
+  word_document:
+    toc: true
+    toc_depth: '2'
   html_document: default
-editor_options: 
-  markdown: 
+subtitle: HarvardX Professional Data Science
+editor_options:
+  markdown:
     wrap: 72
 ---
 
@@ -1271,9 +1275,9 @@ After evaluating several models, including the Mean Rating model, Movie Effect m
 | Movie Effect         | 0.9430730    |
 | User Effect          | 0.8580231    |
 | Regularized Model    | 0.8664880    |
-| **SVD Model**        | **0.8345314**|
+| **SVD Model**        | **0.8328633**|
 
-The RMSE is a key performance metric used to evaluate the difference between predicted and actual ratings. A lower RMSE indicates that the model is making more accurate predictions. The SVD model achieved the lowest RMSE of **0.860**, outperforming even the regularized models.
+The RMSE is a key performance metric used to evaluate the difference between predicted and actual ratings. A lower RMSE indicates that the model is making more accurate predictions. The SVD model achieved the lowest RMSE of **0.833**, outperforming even the regularized models.
 
 ## Why the SVD Model Performed Better
 

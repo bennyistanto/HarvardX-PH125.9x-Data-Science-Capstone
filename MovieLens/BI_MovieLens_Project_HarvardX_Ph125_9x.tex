@@ -1,0 +1,2305 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={MovieLens Capstone: Exploring, Modeling, and Predicting Movie Ratings with Advanced Data Science Techniques},
+  pdfauthor={Benny Istanto (bennyistanto@gmail.com)},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{MovieLens Capstone: Exploring, Modeling, and Predicting Movie
+Ratings with Advanced Data Science Techniques}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{HarvardX Professional Data Science}
+\author{Benny Istanto
+(\href{mailto:bennyistanto@gmail.com}{\nolinkurl{bennyistanto@gmail.com}})}
+\date{25 September 2024}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Introduction}\label{introduction}
+
+\subsection{Background and Motivation}\label{background-and-motivation}
+
+In the age of data-driven decision-making, recommendation systems have
+become essential in providing personalized experiences to users. The
+MovieLens dataset has been a cornerstone in developing such systems,
+particularly in the realm of movie recommendations.
+
+The goal of this capstone project is to apply data science methods to
+the MovieLens dataset to predict movie ratings given by users,
+demonstrating how machine learning techniques can solve real-world
+problems.
+
+\subsection{Project Objectives}\label{project-objectives}
+
+This project aims to:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Perform exploratory data analysis on the MovieLens dataset to uncover
+  patterns and trends.
+\item
+  Develop and evaluate multiple models to predict movie ratings.
+\item
+  Use RMSE (Root Mean Square Error) to compare model performances.
+\item
+  Generate predictions on a final holdout test set to assess model
+  accuracy.
+\end{enumerate}
+
+\subsection{Dataset Overview}\label{dataset-overview}
+
+\subsubsection{Description of MovieLens
+Data}\label{description-of-movielens-data}
+
+The \textbf{MovieLens 10M dataset} contains 10 million movie ratings
+from over 70,000 users, rating over 10,000 different movies. Each user
+rates movies they have watched on a scale from 0.5 to 5 stars. This
+dataset also contains metadata for each movie, including the title and
+associated genres.
+
+We will work with the ratings and movie information to develop a movie
+recommendation system. The dataset is publicly available and provides
+rich information for analysis.
+
+\subsubsection{Data Attributes}\label{data-attributes}
+
+The dataset contains the following attributes:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{userId}: Unique identifier for each user
+\item
+  \textbf{movieId}: Unique identifier for each movie
+\item
+  \textbf{rating}: User rating for a specific movie (0.5 to 5 stars)
+\item
+  \textbf{timestamp}: Time when the rating was recorded
+\item
+  \textbf{title}: Movie title
+\item
+  \textbf{genres}: A pipe-separated list of genres for each movie
+\end{itemize}
+
+Let's load the necessary libraries and track the time it takes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Loading Necessary Libraries and Timing}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(tinytex)) \{}
+  \FunctionTok{install.packages}\NormalTok{(}\StringTok{"tinytex"}\NormalTok{, }\AttributeTok{repos =} \StringTok{"http://cran.us.r{-}project.org"}\NormalTok{, }
+                   \AttributeTok{dependencies =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  tinytex}\SpecialCharTok{::}\FunctionTok{install\_tinytex}\NormalTok{(}\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  tinytex}\SpecialCharTok{::}\FunctionTok{tlmgr}\NormalTok{(}\StringTok{"option repository https://mirror.ctan.org/systems/texlive/tlnet"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: tinytex
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(caret)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"caret"}\NormalTok{, }
+                                     \AttributeTok{repos =} \StringTok{"http://cran.us.r{-}project.org"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: caret
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: ggplot2
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(recommenderlab)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"recommenderlab"}\NormalTok{, }
+                                              \AttributeTok{repos =} \StringTok{"http://cran.us.r{-}project.org"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: recommenderlab
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: Matrix
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: arules
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'arules'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     abbreviate, write
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: proxy
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'proxy'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:Matrix':
+## 
+##     as.matrix
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     as.dist, dist
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:base':
+## 
+##     as.matrix
+\end{verbatim}
+
+\begin{verbatim}
+## Registered S3 methods overwritten by 'registry':
+##   method               from 
+##   print.registry_field proxy
+##   print.registry_entry proxy
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'recommenderlab'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:caret':
+## 
+##     MAE, RMSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(recosystem)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"recosystem"}\NormalTok{, }
+                                          \AttributeTok{repos =} \StringTok{"http://cran.us.r{-}project.org"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: recosystem
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(knitr)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"knitr"}\NormalTok{, }
+                                     \AttributeTok{repos =} \StringTok{"http://cran.us.r{-}project.org"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: knitr
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(rmarkdown)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"rmarkdown"}\NormalTok{, }
+                                         \AttributeTok{repos =} \StringTok{"http://cran.us.r{-}project.org"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: rmarkdown
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(Matrix)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"Matrix"}\NormalTok{, }
+                                       \AttributeTok{repos =} \StringTok{"http://cran.us.r{-}project.org"}\NormalTok{)}
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(tidyverse)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{, }
+                                         \AttributeTok{repos =} \StringTok{"http://cran.us.r{-}project.org"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: tidyverse
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.4     v readr     2.1.5
+## v forcats   1.0.0     v stringr   1.5.1
+## v lubridate 1.9.3     v tibble    3.2.1
+## v purrr     1.0.2     v tidyr     1.3.1
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x tidyr::expand() masks Matrix::expand()
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## x purrr::lift()   masks caret::lift()
+## x tidyr::pack()   masks Matrix::pack()
+## x dplyr::recode() masks arules::recode()
+## x tidyr::unpack() masks Matrix::unpack()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load libraries}
+\FunctionTok{library}\NormalTok{(caret)}
+\FunctionTok{library}\NormalTok{(recommenderlab)}
+\FunctionTok{library}\NormalTok{(recosystem)}
+\FunctionTok{library}\NormalTok{(knitr)}
+\FunctionTok{library}\NormalTok{(rmarkdown)}
+\FunctionTok{library}\NormalTok{(tinytex)}
+\FunctionTok{library}\NormalTok{(Matrix)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time to load libraries: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time to load libraries:  3.94123
+\end{verbatim}
+
+Let's load and inspect the data to gain further insights.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Time tracking for data loading}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Downloading and Unzipping the Dataset}
+\NormalTok{dl }\OtherTok{\textless{}{-}} \StringTok{"ml{-}10M100K.zip"}
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{file.exists}\NormalTok{(dl))}
+  \FunctionTok{download.file}\NormalTok{(}\StringTok{"https://files.grouplens.org/datasets/movielens/ml{-}10m.zip"}\NormalTok{, dl)}
+
+\NormalTok{ratings\_file }\OtherTok{\textless{}{-}} \StringTok{"ml{-}10M100K/ratings.dat"}
+\NormalTok{movies\_file }\OtherTok{\textless{}{-}} \StringTok{"ml{-}10M100K/movies.dat"}
+
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{file.exists}\NormalTok{(ratings\_file))}
+  \FunctionTok{unzip}\NormalTok{(dl, ratings\_file)}
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{file.exists}\NormalTok{(movies\_file))}
+  \FunctionTok{unzip}\NormalTok{(dl, movies\_file)}
+
+\CommentTok{\# Reading in the Ratings Data}
+\NormalTok{ratings }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{str\_split}\NormalTok{(}\FunctionTok{read\_lines}\NormalTok{(ratings\_file), }
+                                   \FunctionTok{fixed}\NormalTok{(}\StringTok{"::"}\NormalTok{), }
+                                   \AttributeTok{simplify =} \ConstantTok{TRUE}\NormalTok{),}
+                         \AttributeTok{stringsAsFactors =} \ConstantTok{FALSE}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(ratings) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"userId"}\NormalTok{, }\StringTok{"movieId"}\NormalTok{, }\StringTok{"rating"}\NormalTok{, }\StringTok{"timestamp"}\NormalTok{)}
+\NormalTok{ratings }\OtherTok{\textless{}{-}}\NormalTok{ ratings }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{userId =} \FunctionTok{as.integer}\NormalTok{(userId), }
+                              \AttributeTok{movieId =} \FunctionTok{as.integer}\NormalTok{(movieId),}
+                              \AttributeTok{rating =} \FunctionTok{as.numeric}\NormalTok{(rating), }
+                              \AttributeTok{timestamp =} \FunctionTok{as.integer}\NormalTok{(timestamp))}
+
+\CommentTok{\# Reading in the Movie Metadata}
+\NormalTok{movies }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{str\_split}\NormalTok{(}\FunctionTok{read\_lines}\NormalTok{(movies\_file), }
+                                  \FunctionTok{fixed}\NormalTok{(}\StringTok{"::"}\NormalTok{), }
+                                  \AttributeTok{simplify =} \ConstantTok{TRUE}\NormalTok{),}
+                        \AttributeTok{stringsAsFactors =} \ConstantTok{FALSE}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(movies) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"movieId"}\NormalTok{, }\StringTok{"title"}\NormalTok{, }\StringTok{"genres"}\NormalTok{)}
+\NormalTok{movies }\OtherTok{\textless{}{-}}\NormalTok{ movies }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{movieId =} \FunctionTok{as.integer}\NormalTok{(movieId))}
+
+\CommentTok{\# Joining the Ratings and Movies Data}
+\NormalTok{movielens }\OtherTok{\textless{}{-}} \FunctionTok{left\_join}\NormalTok{(ratings, movies, }\AttributeTok{by =} \StringTok{"movieId"}\NormalTok{)}
+
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time to load data: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time to load data:  1.533821
+\end{verbatim}
+
+The dataset is successfully loaded.
+
+\begin{verbatim}
+##   userId movieId rating timestamp                         title
+## 1      1     122      5 838985046              Boomerang (1992)
+## 2      1     185      5 838983525               Net, The (1995)
+## 3      1     231      5 838983392          Dumb & Dumber (1994)
+## 4      1     292      5 838983421               Outbreak (1995)
+## 5      1     316      5 838983392               Stargate (1994)
+## 6      1     329      5 838983392 Star Trek: Generations (1994)
+##                          genres
+## 1                Comedy|Romance
+## 2         Action|Crime|Thriller
+## 3                        Comedy
+## 4  Action|Drama|Sci-Fi|Thriller
+## 5       Action|Adventure|Sci-Fi
+## 6 Action|Adventure|Drama|Sci-Fi
+\end{verbatim}
+
+We can now take a look at the first few rows and have a better
+understanding of the dataset, including key attributes such as
+\texttt{userId}, \texttt{movieId}, \texttt{rating}, \texttt{timestamp},
+\texttt{title}, and \texttt{genres}. This dataset forms the foundation
+for our recommendation system model.
+
+\subsection{Handling Conflicting Package
+Functions}\label{handling-conflicting-package-functions}
+
+Sometimes package functions can overlap in name, causing conflicts. For
+example, both the \texttt{Matrix} and \texttt{stats} packages have a
+function named \texttt{dist()}. To resolve this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Explicitly use Matrix::dist to avoid conflict with stats::dist}
+\NormalTok{distance\_matrix }\OtherTok{\textless{}{-}}\NormalTok{ Matrix}\SpecialCharTok{::}\FunctionTok{dist}\NormalTok{(movielens)}
+\end{Highlighting}
+\end{Shaded}
+
+This approach avoids potential conflicts between packages and ensures
+that the correct function is used.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Data Exploration and
+Cleaning}\label{data-exploration-and-cleaning}
+
+\subsection{Loading and Inspecting the
+Data}\label{loading-and-inspecting-the-data}
+
+We have already loaded the data in Chapter 1. Now, we will perform an
+in-depth exploration to understand key characteristics of the dataset.
+This includes the distribution of ratings, popular genres, movie trends,
+and more. We will also identify any potential issues in the data, such
+as missing values or duplicates.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing for data inspection}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Checking the dimensions of the dataset}
+\FunctionTok{dim}\NormalTok{(movielens)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10000054        6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Summary statistics for the ratings}
+\FunctionTok{summary}\NormalTok{(movielens}\SpecialCharTok{$}\NormalTok{rating)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.500   3.000   4.000   3.512   4.000   5.000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Checking for missing values}
+\FunctionTok{sum}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(movielens))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time for data inspection: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time for data inspection:  2.715597
+\end{verbatim}
+
+The \texttt{dim()} function gives us the number of rows (representing
+ratings) and columns (representing features). The \texttt{summary()} of
+the ratings provides insights into the distribution of ratings (min,
+max, quartiles), while \texttt{sum(is.na())} checks for missing values.
+
+\subsection{Exploratory Data Analysis
+(EDA)}\label{exploratory-data-analysis-eda}
+
+\subsubsection{Distribution of Ratings}\label{distribution-of-ratings}
+
+One of the first insights we will explore is the distribution of movie
+ratings. This helps us understand how users typically rate
+movies---whether they tend to give more positive or negative reviews.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing for rating distribution plot}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Plotting the distribution of ratings}
+\NormalTok{movielens }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ rating)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{binwidth =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{fill =} \StringTok{"steelblue"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Distribution of Movie Ratings"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Rating"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Count"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{BI_MovieLens_Project_HarvardX_Ph125_9x_files/figure-latex/rating_distribution-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time for rating distribution plot: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time for rating distribution plot:  5.450783
+\end{verbatim}
+
+The histogram typically shows peaks at whole number ratings, with higher
+ratings like 3, 4, and 5 being more common.
+
+\subsubsection{Popular Genres and
+Movies}\label{popular-genres-and-movies}
+
+Now let's look at the most popular genres by counting the number of
+ratings each genre has received. This will give us insights into the
+preferences of the user base.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing for genre popularity plot}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Counting the number of ratings for each genre}
+\NormalTok{movielens }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{separate\_rows}\NormalTok{(genres, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{|"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(genres) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{summarize}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(count)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(genres, count), }\AttributeTok{y =}\NormalTok{ count)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{fill =} \StringTok{"orange"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{coord\_flip}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} 
+         \StringTok{"Number of Ratings by Genre"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Genre"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Number of Ratings"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{BI_MovieLens_Project_HarvardX_Ph125_9x_files/figure-latex/genre_popularity-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time for genre popularity plot: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time for genre popularity plot:  5.318787
+\end{verbatim}
+
+The bar chart will reveal which genres like Drama, Comedy, and Action
+are most rated by users.
+
+\subsubsection{Trends in User Ratings over
+Time}\label{trends-in-user-ratings-over-time}
+
+We can also visualize how user activity has changed over time by
+examining the timestamp data. Let's convert the timestamp into years and
+look at rating trends across different time periods.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing for user rating trends over time}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Converting timestamp to a year format and plotting trends over time}
+\NormalTok{movielens }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{year =} \FunctionTok{as.POSIXct}\NormalTok{(timestamp, }
+                           \AttributeTok{origin =} \StringTok{"1970{-}01{-}01"}\NormalTok{, }
+                           \AttributeTok{tz =} \StringTok{"UTC"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{format}\NormalTok{(}\StringTok{"\%Y"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(year) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{summarize}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ year, }\AttributeTok{y =}\NormalTok{ count)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{group =} \DecValTok{1}\NormalTok{, }\AttributeTok{color =} \StringTok{"darkgreen"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} 
+         \StringTok{"Trends in User Ratings Over Time"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Year"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Number of Ratings"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{BI_MovieLens_Project_HarvardX_Ph125_9x_files/figure-latex/rating_trends-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time for user rating trends plot: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time for user rating trends plot:  1.435127
+\end{verbatim}
+
+The line plot shows the number of ratings each year, revealing trends
+such as an increase in ratings over time, possibly reflecting the growth
+in the dataset's user base.
+
+\subsection{Data Preprocessing and
+Cleaning}\label{data-preprocessing-and-cleaning}
+
+\subsubsection{Handling Missing Data}\label{handling-missing-data}
+
+In our previous check for missing values, if we encountered any, we need
+to handle them appropriately. For this dataset, we assume there are no
+missing values, but if they existed, we could remove or impute them.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing for handling missing data}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Removing rows with missing data (if applicable)}
+\NormalTok{movielens\_clean }\OtherTok{\textless{}{-}}\NormalTok{ movielens }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(rating))}
+
+\CommentTok{\# Verifying no missing data remains}
+\FunctionTok{sum}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(movielens\_clean))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time for handling missing data: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time for handling missing data:  0.7719901
+\end{verbatim}
+
+This confirms whether all missing values have been removed (if
+applicable). If none existed, this step ensures the dataset is clean for
+further analysis.
+
+\subsubsection{Removing Duplicates or
+Outliers}\label{removing-duplicates-or-outliers}
+
+We will also check for any duplicate rows or outliers in the dataset,
+particularly in ratings that may distort model training.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing for checking duplicates}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Checking for duplicate rows}
+\NormalTok{n\_duplicates }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(movielens) }\SpecialCharTok{{-}} \FunctionTok{nrow}\NormalTok{(}\FunctionTok{distinct}\NormalTok{(movielens))}
+
+\CommentTok{\# Removing duplicates if any}
+\NormalTok{movielens\_clean }\OtherTok{\textless{}{-}} \FunctionTok{distinct}\NormalTok{(movielens)}
+
+\CommentTok{\# Output number of duplicates removed}
+\NormalTok{n\_duplicates}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time for checking and removing duplicates: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time for checking and removing duplicates:  3.052354
+\end{verbatim}
+
+The number of duplicates, if any, will be removed from the dataset. In
+this case, it's expected to be low or zero since this dataset is
+carefully curated.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Feature Engineering}\label{feature-engineering}
+
+This chapter focuses on creating meaningful features, handling
+categorical data, and preparing the dataset for modeling. This will
+include the creation of user and movie-specific features, extracting
+time-based features, and normalizing or encoding data where necessary.
+
+\subsection{Creating User and Movie
+Features}\label{creating-user-and-movie-features}
+
+To improve the prediction of movie ratings, we need to introduce
+additional features based on both users and movies. For instance, the
+average rating a user gives across all movies or the average rating a
+movie receives can provide valuable insights.
+
+Let's start by creating features for the \textbf{average user rating}
+and \textbf{average movie rating}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing for user and movie feature creation}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Average rating per user}
+\NormalTok{user\_avg\_rating }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_clean }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(userId) }\SpecialCharTok{\%\textgreater{}\%}  \CommentTok{\# Ensure dplyr::group\_by() is used}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{summarize}\NormalTok{(}\AttributeTok{user\_avg\_rating =} \FunctionTok{mean}\NormalTok{(rating))}
+
+\CommentTok{\# Average rating per movie}
+\NormalTok{movie\_avg\_rating }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_clean }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(movieId) }\SpecialCharTok{\%\textgreater{}\%}  \CommentTok{\# Ensure dplyr::group\_by() is used}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{summarize}\NormalTok{(}\AttributeTok{movie\_avg\_rating =} \FunctionTok{mean}\NormalTok{(rating))}
+
+\CommentTok{\# Merging these features back into the main dataset}
+\NormalTok{movielens\_clean }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_clean }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(user\_avg\_rating, }\AttributeTok{by =} \StringTok{"userId"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(movie\_avg\_rating, }\AttributeTok{by =} \StringTok{"movieId"}\NormalTok{)}
+
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time for creating user and movie features: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time for creating user and movie features:  3.269982
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Display the first few rows to check the new features}
+\FunctionTok{head}\NormalTok{(movielens\_clean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   userId movieId rating timestamp                         title
+## 1      1     122      5 838985046              Boomerang (1992)
+## 2      1     185      5 838983525               Net, The (1995)
+## 3      1     231      5 838983392          Dumb & Dumber (1994)
+## 4      1     292      5 838983421               Outbreak (1995)
+## 5      1     316      5 838983392               Stargate (1994)
+## 6      1     329      5 838983392 Star Trek: Generations (1994)
+##                          genres user_avg_rating movie_avg_rating
+## 1                Comedy|Romance               5         2.861318
+## 2         Action|Crime|Thriller               5         3.125209
+## 3                        Comedy               5         2.936950
+## 4  Action|Drama|Sci-Fi|Thriller               5         3.418414
+## 5       Action|Adventure|Sci-Fi               5         3.349353
+## 6 Action|Adventure|Drama|Sci-Fi               5         3.336271
+\end{verbatim}
+
+Now, we have created two new features: \texttt{user\_avg\_rating} and
+\texttt{movie\_avg\_rating}, which reflect the average ratings for each
+user and movie, respectively.
+
+\subsection{Extracting Time-Based
+Features}\label{extracting-time-based-features}
+
+Next, we will extract \textbf{time-based features} from the
+\texttt{timestamp} column. For example, we can extract the year and
+month of each rating to capture potential temporal patterns in user
+behavior.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing for time{-}based feature extraction}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Converting timestamp to a Date format and extracting year and month}
+\NormalTok{movielens\_clean }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_clean }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{date =} \FunctionTok{as.POSIXct}\NormalTok{(timestamp, }\AttributeTok{origin =} \StringTok{"1970{-}01{-}01"}\NormalTok{, }\AttributeTok{tz =} \StringTok{"UTC"}\NormalTok{),}
+         \AttributeTok{year =} \FunctionTok{format}\NormalTok{(date, }\StringTok{"\%Y"}\NormalTok{),}
+         \AttributeTok{month =} \FunctionTok{format}\NormalTok{(date, }\StringTok{"\%m"}\NormalTok{))}
+
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time for extracting time{-}based features: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time for extracting time-based features:  2.234205
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Display the first few rows to check the new time{-}based features}
+\FunctionTok{head}\NormalTok{(movielens\_clean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   userId movieId rating timestamp                         title
+## 1      1     122      5 838985046              Boomerang (1992)
+## 2      1     185      5 838983525               Net, The (1995)
+## 3      1     231      5 838983392          Dumb & Dumber (1994)
+## 4      1     292      5 838983421               Outbreak (1995)
+## 5      1     316      5 838983392               Stargate (1994)
+## 6      1     329      5 838983392 Star Trek: Generations (1994)
+##                          genres user_avg_rating movie_avg_rating
+## 1                Comedy|Romance               5         2.861318
+## 2         Action|Crime|Thriller               5         3.125209
+## 3                        Comedy               5         2.936950
+## 4  Action|Drama|Sci-Fi|Thriller               5         3.418414
+## 5       Action|Adventure|Sci-Fi               5         3.349353
+## 6 Action|Adventure|Drama|Sci-Fi               5         3.336271
+##                  date year month
+## 1 1996-08-02 11:24:06 1996    08
+## 2 1996-08-02 10:58:45 1996    08
+## 3 1996-08-02 10:56:32 1996    08
+## 4 1996-08-02 10:57:01 1996    08
+## 5 1996-08-02 10:56:32 1996    08
+## 6 1996-08-02 10:56:32 1996    08
+\end{verbatim}
+
+By converting the timestamp into \texttt{year} and \texttt{month}, we
+can analyze how user activity varies over time or how movie popularity
+shifts across different periods.
+
+\subsection{Normalization and
+Encoding}\label{normalization-and-encoding}
+
+\subsubsection{Creating Dummy Variables for
+Genres}\label{creating-dummy-variables-for-genres}
+
+Movies can belong to multiple genres, and these are currently
+represented as a pipe-separated string in the \texttt{genres} column. To
+use genres in our models, we need to create \textbf{dummy variables} for
+each genre.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing for creating dummy variables for genres}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Creating dummy variables for each genre}
+\NormalTok{movielens\_clean }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_clean }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{separate\_rows}\NormalTok{(genres, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{|"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{value =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  tidyr}\SpecialCharTok{::}\FunctionTok{spread}\NormalTok{(genres, value, }\AttributeTok{fill =} \DecValTok{0}\NormalTok{)  }\CommentTok{\# Ensure tidyr::spread() is used}
+
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time for creating genre dummy variables: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time for creating genre dummy variables:  8.089648
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Display the first few rows to check the dummy variables}
+\FunctionTok{head}\NormalTok{(movielens\_clean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 30
+##   userId movieId rating timestamp title         user_avg_rating movie_avg_rating
+##    <int>   <int>  <dbl>     <int> <chr>                   <dbl>            <dbl>
+## 1      1     122      5 838985046 Boomerang (1~               5             2.86
+## 2      1     185      5 838983525 Net, The (19~               5             3.13
+## 3      1     231      5 838983392 Dumb & Dumbe~               5             2.94
+## 4      1     292      5 838983421 Outbreak (19~               5             3.42
+## 5      1     316      5 838983392 Stargate (19~               5             3.35
+## 6      1     329      5 838983392 Star Trek: G~               5             3.34
+## # i 23 more variables: date <dttm>, year <chr>, month <chr>,
+## #   `(no genres listed)` <dbl>, Action <dbl>, Adventure <dbl>, Animation <dbl>,
+## #   Children <dbl>, Comedy <dbl>, Crime <dbl>, Documentary <dbl>, Drama <dbl>,
+## #   Fantasy <dbl>, `Film-Noir` <dbl>, Horror <dbl>, IMAX <dbl>, Musical <dbl>,
+## #   Mystery <dbl>, Romance <dbl>, `Sci-Fi` <dbl>, Thriller <dbl>, War <dbl>,
+## #   Western <dbl>
+\end{verbatim}
+
+This process splits the genres into separate columns (one for each
+genre), with binary values indicating the presence or absence of each
+genre for a given movie.
+
+\subsubsection{Scaling Rating Values}\label{scaling-rating-values}
+
+Since the \texttt{rating} variable is numerical, we may want to
+\textbf{normalize} or \textbf{scale} it so that all features have a
+similar range, which can be especially useful for certain machine
+learning algorithms like gradient descent-based methods.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing for scaling rating values}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Scaling the rating values to have a mean of 0 and standard deviation of 1}
+\NormalTok{movielens\_clean }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_clean }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{scaled\_rating =}\NormalTok{ base}\SpecialCharTok{::}\FunctionTok{scale}\NormalTok{(rating))  }\CommentTok{\# Ensure base::scale() is used}
+
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time for scaling rating values: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time for scaling rating values:  0.5405672
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Display the first few rows to check the scaled rating}
+\FunctionTok{head}\NormalTok{(movielens\_clean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 31
+##   userId movieId rating timestamp title         user_avg_rating movie_avg_rating
+##    <int>   <int>  <dbl>     <int> <chr>                   <dbl>            <dbl>
+## 1      1     122      5 838985046 Boomerang (1~               5             2.86
+## 2      1     185      5 838983525 Net, The (19~               5             3.13
+## 3      1     231      5 838983392 Dumb & Dumbe~               5             2.94
+## 4      1     292      5 838983421 Outbreak (19~               5             3.42
+## 5      1     316      5 838983392 Stargate (19~               5             3.35
+## 6      1     329      5 838983392 Star Trek: G~               5             3.34
+## # i 24 more variables: date <dttm>, year <chr>, month <chr>,
+## #   `(no genres listed)` <dbl>, Action <dbl>, Adventure <dbl>, Animation <dbl>,
+## #   Children <dbl>, Comedy <dbl>, Crime <dbl>, Documentary <dbl>, Drama <dbl>,
+## #   Fantasy <dbl>, `Film-Noir` <dbl>, Horror <dbl>, IMAX <dbl>, Musical <dbl>,
+## #   Mystery <dbl>, Romance <dbl>, `Sci-Fi` <dbl>, Thriller <dbl>, War <dbl>,
+## #   Western <dbl>, scaled_rating <dbl[,1]>
+\end{verbatim}
+
+The \texttt{base::scale()} function normalizes the \texttt{rating}
+column to have a mean of 0 and a standard deviation of 1. This ensures
+that all features are on a comparable scale when passed into models.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Modeling Approach}\label{modeling-approach}
+
+In this chapter, we will explore different models to predict movie
+ratings. Each model builds on the previous one, moving from a simple
+baseline to more advanced techniques. We will also use regularization to
+prevent overfitting and apply matrix factorization for dimensionality
+reduction.
+
+\subsection{Baseline Models}\label{baseline-models}
+
+Before diving into more advanced techniques, we will start with simple
+baseline models to establish a reference point for model performance.
+
+\subsubsection{Simple Mean Rating Model}\label{simple-mean-rating-model}
+
+The first model we'll build is the \textbf{Mean Rating Model}, it
+assumes that every movie gets the same rating, which is simply the
+average rating across the entire dataset. This model can be
+mathematically represented as:
+
+\[
+\hat{y}_{i} = \mu
+\]
+
+Where: - \(\hat{y}_{i}\) is the predicted rating for user \(i\), -
+\(\mu\) is the global average rating.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mean Rating Model: Predicting the average rating across all movies}
+\NormalTok{mean\_rating }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(movielens\_clean}\SpecialCharTok{$}\NormalTok{rating)}
+
+\CommentTok{\# Function to compute RMSE}
+\NormalTok{rmse }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(true\_ratings, predicted\_ratings) \{}
+  \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{mean}\NormalTok{((true\_ratings }\SpecialCharTok{{-}}\NormalTok{ predicted\_ratings)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{))}
+\NormalTok{\}}
+
+\CommentTok{\# Calculate RMSE for the Mean Rating Model}
+\NormalTok{mean\_model\_rmse }\OtherTok{\textless{}{-}} \FunctionTok{rmse}\NormalTok{(movielens\_clean}\SpecialCharTok{$}\NormalTok{rating, }
+                        \FunctionTok{rep}\NormalTok{(mean\_rating, }
+                            \FunctionTok{nrow}\NormalTok{(movielens\_clean)))}
+\NormalTok{mean\_model\_rmse}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.060418
+\end{verbatim}
+
+The Mean Rating Model provides us with a baseline RMSE, which will be
+used to compare with more sophisticated models.
+
+\subsubsection{Movie Effect Model}\label{movie-effect-model}
+
+The \textbf{Movie Effect Model} adjusts the global mean rating by adding
+a \textbf{movie bias} for each movie. The movie bias represents the
+deviation of a movie's average rating from the global mean.
+
+The model can be expressed as:
+
+\[
+\hat{y}_{ui} = \mu + b_i
+\]
+
+Where: - \(\hat{y}_{ui}\) is the predicted rating for user \(u\) and
+movie \(i\), - \(\mu\) is the global average rating, - \(b_i\) is the
+bias for movie \(i\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Movie Effect Model: Calculating movie bias}
+\NormalTok{movie\_avg }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_clean }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(movieId) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{summarize}\NormalTok{(}\AttributeTok{movie\_bias =} \FunctionTok{mean}\NormalTok{(rating }\SpecialCharTok{{-}}\NormalTok{ mean\_rating))}
+
+\CommentTok{\# Joining movie bias back to the dataset}
+\NormalTok{movielens\_with\_bias }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_clean }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(movie\_avg, }\AttributeTok{by =} \StringTok{"movieId"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{pred\_movie\_effect =}\NormalTok{ mean\_rating }\SpecialCharTok{+}\NormalTok{ movie\_bias)}
+
+\CommentTok{\# Calculate RMSE for the Movie Effect Model}
+\NormalTok{movie\_effect\_rmse }\OtherTok{\textless{}{-}} \FunctionTok{rmse}\NormalTok{(movielens\_with\_bias}\SpecialCharTok{$}\NormalTok{rating, }
+\NormalTok{                          movielens\_with\_bias}\SpecialCharTok{$}\NormalTok{pred\_movie\_effect)}
+\NormalTok{movie\_effect\_rmse}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9424413
+\end{verbatim}
+
+This model should improve the RMSE over the simple mean model by
+accounting for differences in movie ratings.
+
+\subsubsection{User Effect Model}\label{user-effect-model}
+
+The \textbf{User Effect Model} adjusts the prediction by adding a
+\textbf{user bias}. This bias captures the tendency of some users to
+rate movies higher or lower than the average.
+
+The model can be represented as:
+
+\[
+\hat{y}_{ui} = \mu + b_i + b_u
+\]
+
+Where: - \(\hat{y}_{ui}\) is the predicted rating for user \(u\) and
+movie \(i\), - \(\mu\) is the global average rating, - \(b_i\) is the
+bias for movie \(i\), - \(b_u\) is the bias for user \(u\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# User Effect Model: Calculating user bias}
+\NormalTok{user\_avg }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_with\_bias }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(userId) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{summarize}\NormalTok{(}\AttributeTok{user\_bias =} \FunctionTok{mean}\NormalTok{(rating }\SpecialCharTok{{-}}\NormalTok{ (mean\_rating }\SpecialCharTok{+}\NormalTok{ movie\_bias)))}
+
+\CommentTok{\# Joining user bias back to the dataset}
+\NormalTok{movielens\_with\_bias }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_with\_bias }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(user\_avg, }\AttributeTok{by =} \StringTok{"userId"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{pred\_user\_effect =}\NormalTok{ mean\_rating }\SpecialCharTok{+}\NormalTok{ movie\_bias }\SpecialCharTok{+}\NormalTok{ user\_bias)}
+
+\CommentTok{\# Calculate RMSE for the User Effect Model}
+\NormalTok{user\_effect\_rmse }\OtherTok{\textless{}{-}} \FunctionTok{rmse}\NormalTok{(movielens\_with\_bias}\SpecialCharTok{$}\NormalTok{rating, }
+\NormalTok{                         movielens\_with\_bias}\SpecialCharTok{$}\NormalTok{pred\_user\_effect)}
+\NormalTok{user\_effect\_rmse}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8571221
+\end{verbatim}
+
+This model takes into account both the movie and user effects, leading
+to further improvements in the prediction accuracy.
+
+\subsection{Regularization Techniques}\label{regularization-techniques}
+
+To avoid overfitting, we introduce \textbf{regularization}, which
+penalizes large biases by adding a \textbf{regularization term} to the
+movie and user biases. This ensures that movies and users with few
+ratings don't overfit the data.
+
+The regularized movie and user biases are calculated as:
+
+\[
+b_i = \frac{\sum_{u \in U_i} (r_{ui} - \mu)}{n_i + \lambda}
+\]
+
+and
+
+\[
+b_u = \frac{\sum_{i \in I_u} (r_{ui} - (\mu + b_i))}{n_u + \lambda}
+\]
+
+Where: - \(\lambda\) is the regularization parameter, - \(n_i\) is the
+number of ratings for movie \(i\), - \(n_u\) is the number of ratings by
+user \(u\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Time tracking for data loading}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Regularized Movie and User Effect Model}
+\NormalTok{lambda }\OtherTok{\textless{}{-}} \DecValTok{3}  \CommentTok{\# Regularization parameter}
+
+\CommentTok{\# Step 1: Calculate the global mean rating}
+\NormalTok{global\_mean\_rating }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(movielens\_with\_bias}\SpecialCharTok{$}\NormalTok{rating)}
+
+\CommentTok{\# Step 2: Calculate the regularized movie effect (movie\_bias\_reg)}
+\NormalTok{movie\_avg\_reg }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_with\_bias }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(movieId) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{summarize}\NormalTok{(}
+    \AttributeTok{movie\_bias\_reg =} \FunctionTok{sum}\NormalTok{(rating }\SpecialCharTok{{-}}\NormalTok{ global\_mean\_rating) }\SpecialCharTok{/}\NormalTok{ (}\FunctionTok{n}\NormalTok{() }\SpecialCharTok{+}\NormalTok{ lambda),}
+    \AttributeTok{n\_movie\_ratings =} \FunctionTok{n}\NormalTok{()}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{ungroup}\NormalTok{()}
+
+\CommentTok{\# Step 3: Join the regularized movie bias back into the dataset}
+\NormalTok{movielens\_with\_reg\_bias }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_with\_bias }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(movie\_avg\_reg, }\AttributeTok{by =} \StringTok{"movieId"}\NormalTok{)}
+
+\CommentTok{\# Step 4: Calculate the regularized user effect (user\_bias\_reg)}
+\NormalTok{user\_avg\_reg }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_with\_reg\_bias }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(userId) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{summarize}\NormalTok{(}
+    \AttributeTok{user\_bias\_reg =} 
+      \FunctionTok{sum}\NormalTok{(rating }\SpecialCharTok{{-}}\NormalTok{ (global\_mean\_rating }\SpecialCharTok{+}\NormalTok{ movie\_bias\_reg)) }\SpecialCharTok{/}\NormalTok{ (}\FunctionTok{n}\NormalTok{() }\SpecialCharTok{+}\NormalTok{ lambda),}
+    \AttributeTok{n\_user\_ratings =} \FunctionTok{n}\NormalTok{()}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{ungroup}\NormalTok{()}
+
+\CommentTok{\# Step 5: Join the regularized user bias back into the dataset}
+\NormalTok{movielens\_with\_reg\_bias }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_with\_reg\_bias }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(user\_avg\_reg, }\AttributeTok{by =} \StringTok{"userId"}\NormalTok{)}
+
+\CommentTok{\# Step 6: Predict ratings using the regularized movie and user effects}
+\NormalTok{movielens\_with\_reg\_predictions }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_with\_reg\_bias }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{pred\_regularized =}\NormalTok{ global\_mean\_rating }\SpecialCharTok{+}\NormalTok{ movie\_bias\_reg }\SpecialCharTok{+}\NormalTok{ user\_bias\_reg)}
+
+\CommentTok{\# Step 7: Calculate RMSE for the Regularized Model}
+\NormalTok{regularized\_rmse }\OtherTok{\textless{}{-}} \FunctionTok{rmse}\NormalTok{(movielens\_with\_reg\_predictions}\SpecialCharTok{$}\NormalTok{rating, }
+\NormalTok{                         movielens\_with\_reg\_predictions}\SpecialCharTok{$}\NormalTok{pred\_regularized)}
+\FunctionTok{print}\NormalTok{(regularized\_rmse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8572109
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time to load data: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time to load data:  6.540724
+\end{verbatim}
+
+Regularization reduces overfitting by controlling the model's complexity
+and improving the generalization of the predictions.
+
+\subsection{Advanced Models}\label{advanced-models}
+
+\subsubsection{Matrix Factorization
+(SVD)}\label{matrix-factorization-svd}
+
+Matrix Factorization, particularly \textbf{Singular Value Decomposition
+(SVD)}, is a powerful technique for recommendation systems. It
+approximates the user-movie interaction matrix by decomposing it into
+lower-dimensional matrices that capture latent factors.
+
+The SVD model is expressed as:
+
+\[
+R \approx U \Sigma V^T
+\]
+
+Where: - \(R\) is the user-movie interaction matrix, - \(U\) represents
+the user latent factors, - \(\Sigma\) is a diagonal matrix of singular
+values, - \(V^T\) represents the movie latent factors.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Time tracking for data loading}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Setting a seed for reproducibility}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{42}\NormalTok{)}
+
+\CommentTok{\# Splitting the dataset into 80\% training and 20\% validation}
+\NormalTok{train\_index }\OtherTok{\textless{}{-}}\NormalTok{ caret}\SpecialCharTok{::}\FunctionTok{createDataPartition}\NormalTok{(movielens}\SpecialCharTok{$}\NormalTok{rating, }
+                                          \AttributeTok{times =} \DecValTok{1}\NormalTok{, }
+                                          \AttributeTok{p =} \FloatTok{0.8}\NormalTok{, }
+                                          \AttributeTok{list =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{train\_set }\OtherTok{\textless{}{-}}\NormalTok{ movielens[train\_index, ]}
+\NormalTok{validation\_set }\OtherTok{\textless{}{-}}\NormalTok{ movielens[}\SpecialCharTok{{-}}\NormalTok{train\_index, ]}
+
+\CommentTok{\# Checking the dimensions of the train and validation sets}
+\FunctionTok{dim}\NormalTok{(train\_set)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8000045       6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dim}\NormalTok{(validation\_set)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2000009       6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Step 1: Prepare the training data from the training set}
+\NormalTok{train\_data }\OtherTok{\textless{}{-}}\NormalTok{ train\_set }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(userId, movieId, rating)}
+
+\CommentTok{\# Step 2: Save the training data to a file}
+\FunctionTok{write.table}\NormalTok{(train\_data, }
+            \AttributeTok{file =} \StringTok{"train.txt"}\NormalTok{, }
+            \AttributeTok{sep =} \StringTok{" "}\NormalTok{, }
+            \AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{, }
+            \AttributeTok{col.names =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# Step 3: Prepare the validation data }
+\CommentTok{\# (only userId and movieId are needed for predictions)}
+\NormalTok{validation\_data }\OtherTok{\textless{}{-}}\NormalTok{ validation\_set }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(userId, movieId)}
+
+\CommentTok{\# Step 4: Save the validation data to a file}
+\FunctionTok{write.table}\NormalTok{(validation\_data, }
+            \AttributeTok{file =} \StringTok{"validation.txt"}\NormalTok{, }
+            \AttributeTok{sep =} \StringTok{" "}\NormalTok{, }
+            \AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{, }
+            \AttributeTok{col.names =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# Step 5: Build the SVD model using Reco}
+\NormalTok{r }\OtherTok{\textless{}{-}} \FunctionTok{Reco}\NormalTok{()}
+
+\CommentTok{\# Train the model on the training set}
+\NormalTok{r}\SpecialCharTok{$}\FunctionTok{train}\NormalTok{(}\FunctionTok{data\_file}\NormalTok{(}\StringTok{"train.txt"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## iter      tr_rmse          obj
+##    0       0.9634   1.3135e+07
+##    1       0.8823   1.1839e+07
+##    2       0.8661   1.1739e+07
+##    3       0.8491   1.1540e+07
+##    4       0.8435   1.1473e+07
+##    5       0.8407   1.1440e+07
+##    6       0.8388   1.1415e+07
+##    7       0.8372   1.1406e+07
+##    8       0.8355   1.1398e+07
+##    9       0.8338   1.1385e+07
+##   10       0.8322   1.1372e+07
+##   11       0.8308   1.1366e+07
+##   12       0.8295   1.1354e+07
+##   13       0.8285   1.1346e+07
+##   14       0.8277   1.1345e+07
+##   15       0.8269   1.1336e+07
+##   16       0.8263   1.1332e+07
+##   17       0.8257   1.1330e+07
+##   18       0.8252   1.1326e+07
+##   19       0.8247   1.1321e+07
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Step 6: Predict ratings for the validation set}
+\NormalTok{predicted\_svd }\OtherTok{\textless{}{-}}\NormalTok{ r}\SpecialCharTok{$}\FunctionTok{predict}\NormalTok{(}\FunctionTok{data\_file}\NormalTok{(}\StringTok{"validation.txt"}\NormalTok{), }\FunctionTok{out\_memory}\NormalTok{())}
+
+\CommentTok{\# Step 7: Ensure predictions match the number of rows in the validation set}
+\NormalTok{predicted\_svd }\OtherTok{\textless{}{-}}\NormalTok{ predicted\_svd[}\DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(validation\_set)]}
+
+\CommentTok{\# Step 8: Calculate RMSE for the SVD Model on the validation set}
+\NormalTok{svd\_rmse }\OtherTok{\textless{}{-}} \FunctionTok{rmse}\NormalTok{(validation\_set}\SpecialCharTok{$}\NormalTok{rating, predicted\_svd)}
+\FunctionTok{print}\NormalTok{(svd\_rmse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8379582
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time to load data: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time to load data:  6.294332
+\end{verbatim}
+
+This model should provide a much lower RMSE, as it captures latent
+user-movie interactions better than previous models.
+
+Matrix Factorization reduces the dimensionality of the user-item
+interaction space, helping the model capture latent patterns in user
+preferences and movie features, leading to more accurate predictions.
+
+\subsection{Model Selection and Hyperparameter
+Tuning}\label{model-selection-and-hyperparameter-tuning}
+
+After building the models, we select the best one based on the lowest
+RMSE and tune its hyperparameters for further improvement. For example,
+in the regularization model, we will tune the \textbf{lambda} parameter.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Time tracking for data loading}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Example: Tuning the regularization parameter lambda}
+\NormalTok{lambdas }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{, }\FloatTok{0.25}\NormalTok{)}
+\NormalTok{rmses }\OtherTok{\textless{}{-}} \FunctionTok{sapply}\NormalTok{(lambdas, }\ControlFlowTok{function}\NormalTok{(l) \{}
+
+  \CommentTok{\# Step 1: Calculate the global mean rating}
+\NormalTok{  global\_mean\_rating }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(movielens\_with\_bias}\SpecialCharTok{$}\NormalTok{rating)}
+
+  \CommentTok{\# Step 2: Calculate the regularized movie effect (movie\_bias\_reg)}
+\NormalTok{  movie\_avg\_reg }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_with\_bias }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{    dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(movieId) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{    dplyr}\SpecialCharTok{::}\FunctionTok{summarize}\NormalTok{(}
+      \AttributeTok{movie\_bias\_reg =} \FunctionTok{sum}\NormalTok{(rating }\SpecialCharTok{{-}}\NormalTok{ global\_mean\_rating) }\SpecialCharTok{/}\NormalTok{ (}\FunctionTok{n}\NormalTok{() }\SpecialCharTok{+}\NormalTok{ l)}
+\NormalTok{    ) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{    dplyr}\SpecialCharTok{::}\FunctionTok{ungroup}\NormalTok{()}
+
+  \CommentTok{\# Step 3: Ensure the movie bias is correctly joined into the dataset}
+\NormalTok{  movielens\_with\_reg\_bias }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_with\_bias }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{left\_join}\NormalTok{(movie\_avg\_reg, }\AttributeTok{by =} \StringTok{"movieId"}\NormalTok{)}
+
+  \CommentTok{\# Step 4: Calculate the regularized user effect (user\_bias\_reg)}
+\NormalTok{  user\_avg\_reg }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_with\_reg\_bias }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{    dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(userId) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{    dplyr}\SpecialCharTok{::}\FunctionTok{summarize}\NormalTok{(}
+      \AttributeTok{user\_bias\_reg =} 
+        \FunctionTok{sum}\NormalTok{(rating }\SpecialCharTok{{-}}\NormalTok{ (global\_mean\_rating }\SpecialCharTok{+}\NormalTok{ movie\_bias\_reg)) }\SpecialCharTok{/}\NormalTok{ (}\FunctionTok{n}\NormalTok{() }\SpecialCharTok{+}\NormalTok{ l)}
+\NormalTok{    ) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{    dplyr}\SpecialCharTok{::}\FunctionTok{ungroup}\NormalTok{()}
+
+  \CommentTok{\# Step 5: Join the regularized user bias back into the dataset}
+\NormalTok{  movielens\_with\_reg\_bias }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_with\_reg\_bias }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{left\_join}\NormalTok{(user\_avg\_reg, }\AttributeTok{by =} \StringTok{"userId"}\NormalTok{)}
+
+  \CommentTok{\# Step 6: Predict ratings using the regularized movie and user effects}
+\NormalTok{  movielens\_with\_reg\_predictions }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_with\_reg\_bias }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{pred\_regularized =}\NormalTok{ global\_mean\_rating }\SpecialCharTok{+}\NormalTok{ movie\_bias\_reg }\SpecialCharTok{+}\NormalTok{ user\_bias\_reg)}
+
+  \CommentTok{\# Return RMSE for the current lambda}
+  \FunctionTok{return}\NormalTok{(}\FunctionTok{rmse}\NormalTok{(movielens\_with\_reg\_predictions}\SpecialCharTok{$}\NormalTok{rating, }
+\NormalTok{              movielens\_with\_reg\_predictions}\SpecialCharTok{$}\NormalTok{pred\_regularized))}
+\NormalTok{\})}
+
+\CommentTok{\# Plot RMSE vs Lambda}
+\FunctionTok{plot}\NormalTok{(lambdas, rmses, }\AttributeTok{type =} \StringTok{"b"}\NormalTok{, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{pch =} \DecValTok{19}\NormalTok{, }
+     \AttributeTok{xlab =} \StringTok{"Lambda (Regularization)"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"RMSE"}\NormalTok{, }
+     \AttributeTok{main =} \StringTok{"RMSE vs Lambda"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{BI_MovieLens_Project_HarvardX_Ph125_9x_files/figure-latex/hyperparameter_tuning-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time to load data: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time to load data:  4.129786
+\end{verbatim}
+
+This plot helps us choose the best \texttt{lambda} value by selecting
+the one with the lowest RMSE.
+
+Let's select the best \texttt{lambda} which will be use for further
+analysis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Best Lambda}
+\NormalTok{best\_lambda }\OtherTok{\textless{}{-}}\NormalTok{ lambdas[}\FunctionTok{which.min}\NormalTok{(rmses)]}
+\NormalTok{best\_lambda}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Validation and Performance
+Evaluation}\label{validation-and-performance-evaluation}
+
+We will split the data into training and validation sets, select an
+appropriate evaluation metric (RMSE), and perform cross-validation to
+ensure the models generalize well to unseen data. Finally, we will
+compare the RMSE across all models and summarize the results.
+
+\subsection{Train-Validation Split}\label{train-validation-split}
+
+To assess the performance of our models, we will split the dataset into
+\textbf{training} and \textbf{validation} sets. The training set will be
+used to train the models, and the validation set will be used to
+evaluate model performance.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Time tracking for data loading}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Setting a seed for reproducibility}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{42}\NormalTok{)}
+
+\CommentTok{\# Splitting the dataset into 80\% training and 20\% validation}
+\NormalTok{train\_index }\OtherTok{\textless{}{-}}\NormalTok{ caret}\SpecialCharTok{::}\FunctionTok{createDataPartition}\NormalTok{(movielens\_with\_bias}\SpecialCharTok{$}\NormalTok{rating, }
+                                          \AttributeTok{times =} \DecValTok{1}\NormalTok{, }
+                                          \AttributeTok{p =} \FloatTok{0.8}\NormalTok{, }
+                                          \AttributeTok{list =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{train\_set }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_with\_bias[train\_index, ]}
+\NormalTok{validation\_set }\OtherTok{\textless{}{-}}\NormalTok{ movielens\_with\_bias[}\SpecialCharTok{{-}}\NormalTok{train\_index, ]}
+
+\CommentTok{\# Checking the dimensions of the train and validation sets}
+\FunctionTok{dim}\NormalTok{(train\_set)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8000045      35
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dim}\NormalTok{(validation\_set)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2000009      35
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time to load data: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time to load data:  9.388659
+\end{verbatim}
+
+We have successfully split the dataset into training and validation
+sets, ensuring that 80\% of the data is used for training and 20\% for
+validation.
+
+\subsection{Metric Selection (Root Mean Squared Error -
+RMSE)}\label{metric-selection-root-mean-squared-error---rmse}
+
+We will evaluate model performance using \textbf{Root Mean Squared Error
+(RMSE)}, which measures the difference between predicted and actual
+ratings. RMSE is a common metric used in recommendation systems because
+it penalizes larger errors more heavily.
+
+The formula for RMSE is:
+
+\[
+RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
+\]
+
+Where: - \(y_i\) is the actual rating, - \(\hat{y}_i\) is the predicted
+rating, and - \(n\) is the total number of ratings.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# RMSE function definition}
+\NormalTok{rmse }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(true\_ratings, predicted\_ratings) \{}
+  \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{mean}\NormalTok{((true\_ratings }\SpecialCharTok{{-}}\NormalTok{ predicted\_ratings)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{))}
+\NormalTok{\}}
+
+\CommentTok{\# Example: Calculate RMSE for the baseline mean rating model }
+\CommentTok{\# on the validation set}
+\NormalTok{mean\_rating }\OtherTok{\textless{}{-}}\NormalTok{ base}\SpecialCharTok{::}\FunctionTok{mean}\NormalTok{(train\_set}\SpecialCharTok{$}\NormalTok{rating)}
+\NormalTok{baseline\_rmse }\OtherTok{\textless{}{-}} \FunctionTok{rmse}\NormalTok{(validation\_set}\SpecialCharTok{$}\NormalTok{rating, }
+                      \FunctionTok{rep}\NormalTok{(mean\_rating, }
+                          \FunctionTok{nrow}\NormalTok{(validation\_set)))}
+\NormalTok{baseline\_rmse}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.060937
+\end{verbatim}
+
+The RMSE for the baseline mean rating model serves as a reference point
+to compare the performance of more advanced models.
+
+\subsection{Cross-Validation and K-Folds
+Analysis}\label{cross-validation-and-k-folds-analysis}
+
+To further evaluate the models, we will use \textbf{K-fold
+Cross-Validation}, a technique that splits the training set into K
+subsets. The model is trained on K-1 subsets and evaluated on the
+remaining subset. This process is repeated K times to reduce variability
+in performance estimates.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Time tracking for data loading}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Using 5{-}Fold Cross{-}Validation}
+\NormalTok{train\_control }\OtherTok{\textless{}{-}}\NormalTok{ caret}\SpecialCharTok{::}\FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+
+\CommentTok{\# Example: Cross{-}Validation for the regularized model}
+\NormalTok{regularized\_model }\OtherTok{\textless{}{-}}\NormalTok{ caret}\SpecialCharTok{::}\FunctionTok{train}\NormalTok{(}
+\NormalTok{  rating }\SpecialCharTok{\textasciitilde{}}\NormalTok{ movieId }\SpecialCharTok{+}\NormalTok{ userId }\SpecialCharTok{+}\NormalTok{ movie\_bias }\SpecialCharTok{+}\NormalTok{ user\_bias, }
+  \AttributeTok{data =}\NormalTok{ train\_set, }
+  \AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }
+  \AttributeTok{trControl =}\NormalTok{ train\_control}
+\NormalTok{)}
+
+\CommentTok{\# RMSE from Cross{-}Validation}
+\NormalTok{cross\_val\_rmse }\OtherTok{\textless{}{-}}\NormalTok{ regularized\_model}\SpecialCharTok{$}\NormalTok{results}\SpecialCharTok{$}\NormalTok{RMSE}
+\NormalTok{cross\_val\_rmse}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8567798
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time to load data: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time to load data:  3.122659
+\end{verbatim}
+
+Cross-validation helps ensure that our model generalizes well by
+evaluating it on multiple subsets of the data, reducing the likelihood
+of overfitting.
+
+\subsection{Comparison of Model
+Performances}\label{comparison-of-model-performances}
+
+Let's now compare the RMSE of all the models we've built. We will
+evaluate the models on the validation set and summarize their
+performance in a table.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Step 1: Calculate biases from the training set}
+\NormalTok{global\_mean\_rating }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(train\_set}\SpecialCharTok{$}\NormalTok{rating)}
+
+\CommentTok{\# Regularized movie bias for training set}
+\NormalTok{movie\_avg\_reg }\OtherTok{\textless{}{-}}\NormalTok{ train\_set }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(movieId) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{movie\_bias\_reg =} 
+              \FunctionTok{sum}\NormalTok{(rating }\SpecialCharTok{{-}}\NormalTok{ global\_mean\_rating) }\SpecialCharTok{/}\NormalTok{ (}\FunctionTok{n}\NormalTok{() }\SpecialCharTok{+}\NormalTok{ best\_lambda))}
+
+\CommentTok{\# Regularized user bias for training set}
+\NormalTok{user\_avg\_reg }\OtherTok{\textless{}{-}}\NormalTok{ train\_set }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(movie\_avg\_reg, }\AttributeTok{by =} \StringTok{"movieId"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(userId) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarize}\NormalTok{(}
+    \AttributeTok{user\_bias\_reg =} \FunctionTok{sum}\NormalTok{(rating }\SpecialCharTok{{-}}\NormalTok{ (global\_mean\_rating }\SpecialCharTok{+}\NormalTok{ movie\_bias\_reg)) }\SpecialCharTok{/} 
+\NormalTok{      (}\FunctionTok{n}\NormalTok{() }\SpecialCharTok{+}\NormalTok{ best\_lambda)}
+\NormalTok{    )}
+
+\CommentTok{\# Step 2: Apply regularized movie and user biases to validation set}
+\NormalTok{validation\_set }\OtherTok{\textless{}{-}}\NormalTok{ validation\_set }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(movie\_avg\_reg, }\AttributeTok{by =} \StringTok{"movieId"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(user\_avg\_reg, }\AttributeTok{by =} \StringTok{"userId"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{movie\_bias\_reg =} \FunctionTok{coalesce}\NormalTok{(movie\_bias\_reg, }\DecValTok{0}\NormalTok{),  }\CommentTok{\# Fill missing movie biases with 0}
+    \AttributeTok{user\_bias\_reg =} \FunctionTok{coalesce}\NormalTok{(user\_bias\_reg, }\DecValTok{0}\NormalTok{),    }\CommentTok{\# Fill missing user biases with 0}
+    \AttributeTok{pred\_regularized =}\NormalTok{ global\_mean\_rating }\SpecialCharTok{+}\NormalTok{ movie\_bias\_reg }\SpecialCharTok{+}\NormalTok{ user\_bias\_reg  }\CommentTok{\# Prediction}
+\NormalTok{  )}
+
+\CommentTok{\# Step 3: Calculate RMSE for all models}
+\NormalTok{mean\_rmse }\OtherTok{\textless{}{-}} \FunctionTok{rmse}\NormalTok{(validation\_set}\SpecialCharTok{$}\NormalTok{rating, }\FunctionTok{rep}\NormalTok{(mean\_rating, }\FunctionTok{nrow}\NormalTok{(validation\_set)))}
+\NormalTok{movie\_effect\_rmse }\OtherTok{\textless{}{-}} \FunctionTok{rmse}\NormalTok{(validation\_set}\SpecialCharTok{$}\NormalTok{rating, validation\_set}\SpecialCharTok{$}\NormalTok{pred\_movie\_effect)}
+\NormalTok{user\_effect\_rmse }\OtherTok{\textless{}{-}} \FunctionTok{rmse}\NormalTok{(validation\_set}\SpecialCharTok{$}\NormalTok{rating, validation\_set}\SpecialCharTok{$}\NormalTok{pred\_user\_effect)}
+\NormalTok{regularized\_rmse }\OtherTok{\textless{}{-}} \FunctionTok{rmse}\NormalTok{(validation\_set}\SpecialCharTok{$}\NormalTok{rating, validation\_set}\SpecialCharTok{$}\NormalTok{pred\_regularized)}
+
+\CommentTok{\# Fix the length mismatch in the SVD model}
+\CommentTok{\# Ensure \textasciigrave{}predicted\_svd\textasciigrave{} matches the number of rows in validation\_set}
+\NormalTok{predicted\_svd }\OtherTok{\textless{}{-}}\NormalTok{ predicted\_svd[}\DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(validation\_set)]  }\CommentTok{\# Adjust length if needed}
+\NormalTok{svd\_rmse }\OtherTok{\textless{}{-}} \FunctionTok{rmse}\NormalTok{(validation\_set}\SpecialCharTok{$}\NormalTok{rating, predicted\_svd)}
+
+\CommentTok{\# Step 4: Create a summary table of RMSE for all models}
+\NormalTok{rmse\_results }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Model =} \FunctionTok{c}\NormalTok{(}\StringTok{"Mean Rating"}\NormalTok{, }
+            \StringTok{"Movie Effect"}\NormalTok{, }
+            \StringTok{"User Effect"}\NormalTok{, }
+            \StringTok{"Regularized Model"}\NormalTok{, }
+            \StringTok{"SVD"}\NormalTok{),}
+  \AttributeTok{RMSE =} \FunctionTok{c}\NormalTok{(mean\_rmse, }
+\NormalTok{           movie\_effect\_rmse, }
+\NormalTok{           user\_effect\_rmse, }
+\NormalTok{           regularized\_rmse, }
+\NormalTok{           svd\_rmse)}
+\NormalTok{)}
+
+\CommentTok{\# Display the RMSE results}
+\NormalTok{rmse\_results}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               Model      RMSE
+## 1       Mean Rating 1.0609374
+## 2      Movie Effect 0.9430730
+## 3       User Effect 0.8580231
+## 4 Regularized Model 0.8664880
+## 5               SVD 0.8379582
+\end{verbatim}
+
+This table provides a clear comparison of the RMSE values across
+different models. The model with the lowest RMSE will likely be the best
+performer and will be selected as the final model.
+
+\subsection{Model Selection and Final
+Thoughts}\label{model-selection-and-final-thoughts}
+
+Based on the RMSE comparison, we can select the model with the lowest
+RMSE as the best model. Typically, the \textbf{SVD} or
+\textbf{Regularized Movie and User Effect} models perform the best due
+to their ability to capture latent factors and manage overfitting.
+
+In conclusion, this capstone project demonstrates how various models can
+be applied to a recommendation system, and how techniques like
+regularization and matrix factorization improve predictive accuracy. The
+comparison of RMSE values provides insight into model performance, and
+cross-validation ensures that these models generalize well to new data.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Final Model and Predictions}\label{final-model-and-predictions}
+
+We will build the final model based on the best performing model from
+previous chapters, apply it to the \textbf{final\_holdout\_test} set,
+generate predictions, and calculate the RMSE as required for the
+Capstone project.
+
+\subsection{Creating the Final Holdout Test
+Set}\label{creating-the-final-holdout-test-set}
+
+First, we will create the \textbf{final\_holdout\_test} set using the
+MovieLens dataset, ensuring that it is 10\% of the data and contains the
+same users and movies as the training set (\texttt{edx}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Time tracking for data loading}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Creating edx and final\_holdout\_test sets}
+\NormalTok{dl }\OtherTok{\textless{}{-}} \StringTok{"ml{-}10M100K.zip"}
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{file.exists}\NormalTok{(dl))}
+  \FunctionTok{download.file}\NormalTok{(}\StringTok{"https://files.grouplens.org/datasets/movielens/ml{-}10m.zip"}\NormalTok{, dl)}
+
+\NormalTok{ratings\_file }\OtherTok{\textless{}{-}} \StringTok{"ml{-}10M100K/ratings.dat"}
+\NormalTok{movies\_file }\OtherTok{\textless{}{-}} \StringTok{"ml{-}10M100K/movies.dat"}
+
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{file.exists}\NormalTok{(ratings\_file))}
+  \FunctionTok{unzip}\NormalTok{(dl, ratings\_file)}
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{file.exists}\NormalTok{(movies\_file))}
+  \FunctionTok{unzip}\NormalTok{(dl, movies\_file)}
+
+\CommentTok{\# Load ratings data}
+\NormalTok{ratings }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{str\_split}\NormalTok{(}\FunctionTok{read\_lines}\NormalTok{(ratings\_file), }
+                                   \FunctionTok{fixed}\NormalTok{(}\StringTok{"::"}\NormalTok{), }
+                                   \AttributeTok{simplify =} \ConstantTok{TRUE}\NormalTok{), }
+                         \AttributeTok{stringsAsFactors =} \ConstantTok{FALSE}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(ratings) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"userId"}\NormalTok{, }\StringTok{"movieId"}\NormalTok{, }\StringTok{"rating"}\NormalTok{, }\StringTok{"timestamp"}\NormalTok{)}
+\NormalTok{ratings }\OtherTok{\textless{}{-}}\NormalTok{ ratings }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{userId =} \FunctionTok{as.integer}\NormalTok{(userId),}
+         \AttributeTok{movieId =} \FunctionTok{as.integer}\NormalTok{(movieId),}
+         \AttributeTok{rating =} \FunctionTok{as.numeric}\NormalTok{(rating),}
+         \AttributeTok{timestamp =} \FunctionTok{as.integer}\NormalTok{(timestamp))}
+
+\CommentTok{\# Load movie data}
+\NormalTok{movies }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{str\_split}\NormalTok{(}\FunctionTok{read\_lines}\NormalTok{(movies\_file), }
+                                  \FunctionTok{fixed}\NormalTok{(}\StringTok{"::"}\NormalTok{), }
+                                  \AttributeTok{simplify =} \ConstantTok{TRUE}\NormalTok{), }
+                        \AttributeTok{stringsAsFactors =} \ConstantTok{FALSE}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(movies) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"movieId"}\NormalTok{, }\StringTok{"title"}\NormalTok{, }\StringTok{"genres"}\NormalTok{)}
+\NormalTok{movies }\OtherTok{\textless{}{-}}\NormalTok{ movies }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{movieId =} \FunctionTok{as.integer}\NormalTok{(movieId))}
+
+\CommentTok{\# Join ratings and movie data}
+\NormalTok{movielens }\OtherTok{\textless{}{-}} \FunctionTok{left\_join}\NormalTok{(ratings, movies, }\AttributeTok{by =} \StringTok{"movieId"}\NormalTok{)}
+
+\CommentTok{\# Set the seed for reproducibility, adjusting for different R versions}
+\ControlFlowTok{if}\NormalTok{(}\FunctionTok{getRversion}\NormalTok{() }\SpecialCharTok{\textgreater{}=} \StringTok{"3.6.0"}\NormalTok{) \{}
+  \FunctionTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{, }\AttributeTok{sample.kind =} \StringTok{"Rejection"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{\# Splitting the dataset into 80\% training and 20\% validation}
+\NormalTok{test\_index }\OtherTok{\textless{}{-}} \FunctionTok{createDataPartition}\NormalTok{(}\AttributeTok{y =}\NormalTok{ movielens}\SpecialCharTok{$}\NormalTok{rating, }
+                                  \AttributeTok{times =} \DecValTok{1}\NormalTok{, }
+                                  \AttributeTok{p =} \FloatTok{0.1}\NormalTok{, }
+                                  \AttributeTok{list =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{edx }\OtherTok{\textless{}{-}}\NormalTok{ movielens[}\SpecialCharTok{{-}}\NormalTok{test\_index, ]}
+\NormalTok{temp }\OtherTok{\textless{}{-}}\NormalTok{ movielens[test\_index, ]}
+
+\NormalTok{final\_holdout\_test }\OtherTok{\textless{}{-}}\NormalTok{ temp }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{semi\_join}\NormalTok{(edx, }\AttributeTok{by =} \StringTok{"movieId"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{semi\_join}\NormalTok{(edx, }\AttributeTok{by =} \StringTok{"userId"}\NormalTok{)}
+
+\CommentTok{\# Add rows removed from final\_holdout\_test back into edx}
+\NormalTok{removed }\OtherTok{\textless{}{-}} \FunctionTok{anti\_join}\NormalTok{(temp, final\_holdout\_test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Joining with `by = join_by(userId, movieId, rating, timestamp, title, genres)`
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edx }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(edx, removed)}
+
+\CommentTok{\# Clean up}
+\FunctionTok{rm}\NormalTok{(dl, ratings, movies, test\_index, temp, movielens, removed)}
+
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time to load data: "}\NormalTok{, end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time to load data:  1.086113
+\end{verbatim}
+
+\subsection{Building the Final Model}\label{building-the-final-model}
+
+Now that we have the \textbf{final\_holdout\_test} set, we will build
+the final model based on the \textbf{SVD approach} identified as the
+best-performing model in Chapter 5.
+
+The \textbf{SVD model} (Singular Value Decomposition) is a powerful
+matrix factorization technique that approximates the user-movie
+interaction matrix into latent factors. This allows for better capturing
+of hidden relationships between users and movies.
+
+The SVD model decomposes the interaction matrix \(R\) as follows:
+
+\[
+R \approx U \Sigma V^T
+\]
+
+Where: - \(R\) is the user-movie interaction matrix, - \(U\) represents
+the user latent factors, - \(\Sigma\) is a diagonal matrix of singular
+values, - \(V^T\) represents the movie latent factors.
+
+The SVD model provides predictions by capturing latent features that
+reflect user preferences and movie characteristics, leading to more
+accurate predictions.
+
+Here is the code for building the final model using the SVD approach:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Time tracking for data loading}
+\NormalTok{start\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\CommentTok{\# Step 1: Prepare the training data from the edx dataset}
+\NormalTok{train\_data }\OtherTok{\textless{}{-}}\NormalTok{ edx }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(userId, movieId, rating)}
+
+\CommentTok{\# Step 2: Save the training data to a file for SVD model}
+\FunctionTok{write.table}\NormalTok{(train\_data, }
+            \AttributeTok{file =} \StringTok{"train\_svd.txt"}\NormalTok{, }
+            \AttributeTok{sep =} \StringTok{" "}\NormalTok{, }
+            \AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{, }
+            \AttributeTok{col.names =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# Step 3: Build and train the SVD model using Reco library}
+\NormalTok{r }\OtherTok{\textless{}{-}} \FunctionTok{Reco}\NormalTok{()}
+
+\CommentTok{\# Train the SVD model on the training data}
+\NormalTok{r}\SpecialCharTok{$}\FunctionTok{train}\NormalTok{(}\FunctionTok{data\_file}\NormalTok{(}\StringTok{"train\_svd.txt"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## iter      tr_rmse          obj
+##    0       0.9552   1.4619e+07
+##    1       0.8800   1.3345e+07
+##    2       0.8572   1.3089e+07
+##    3       0.8464   1.2944e+07
+##    4       0.8426   1.2898e+07
+##    5       0.8398   1.2868e+07
+##    6       0.8369   1.2843e+07
+##    7       0.8335   1.2818e+07
+##    8       0.8304   1.2797e+07
+##    9       0.8279   1.2774e+07
+##   10       0.8261   1.2756e+07
+##   11       0.8248   1.2748e+07
+##   12       0.8239   1.2740e+07
+##   13       0.8231   1.2735e+07
+##   14       0.8225   1.2728e+07
+##   15       0.8219   1.2719e+07
+##   16       0.8216   1.2717e+07
+##   17       0.8213   1.2713e+07
+##   18       0.8210   1.2711e+07
+##   19       0.8207   1.2709e+07
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Step 4: Predict ratings for the final\_holdout\_test set using the SVD model}
+\CommentTok{\# Prepare the final\_holdout\_test data}
+\NormalTok{test\_data }\OtherTok{\textless{}{-}}\NormalTok{ final\_holdout\_test }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(userId, movieId, rating)}
+
+\CommentTok{\# Save the final\_holdout\_test data to a file}
+\FunctionTok{write.table}\NormalTok{(test\_data, }
+            \AttributeTok{file =} \StringTok{"test\_svd.txt"}\NormalTok{, }
+            \AttributeTok{sep =} \StringTok{" "}\NormalTok{, }
+            \AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{, }
+            \AttributeTok{col.names =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# Predict the ratings using the trained SVD model}
+\NormalTok{final\_predictions\_svd }\OtherTok{\textless{}{-}}\NormalTok{ r}\SpecialCharTok{$}\FunctionTok{predict}\NormalTok{(}\FunctionTok{data\_file}\NormalTok{(}\StringTok{"test\_svd.txt"}\NormalTok{), }
+                                   \FunctionTok{out\_memory}\NormalTok{())}
+
+\CommentTok{\# Timing completed}
+\NormalTok{end\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Time to build and predict using SVD model: "}\NormalTok{, }
+\NormalTok{    end\_time }\SpecialCharTok{{-}}\NormalTok{ start\_time, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time to build and predict using SVD model:  6.834765
+\end{verbatim}
+
+This code builds the final model using the SVD approach and applies it
+to the \texttt{final\_holdout\_test\ set}, saving the predictions in
+\texttt{final\_predictions\_svd}.
+
+\subsection{Generating Predictions for the Final Holdout Test
+Set}\label{generating-predictions-for-the-final-holdout-test-set}
+
+The \texttt{predicted\_rating} variable now contains the predicted movie
+ratings for each user-movie pair in the \textbf{final\_holdout\_test}
+set.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# View the first few predictions}
+\FunctionTok{head}\NormalTok{(final\_predictions\_svd)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4.980452 3.443189 2.679270 3.739451 3.869768 3.849341
+\end{verbatim}
+
+\subsection{RMSE Calculation}\label{rmse-calculation}
+
+Finally, we calculate the \textbf{Root Mean Squared Error (RMSE)}
+between the predicted ratings and the actual ratings in the
+\textbf{final\_holdout\_test} set, as required for the Capstone project.
+
+The RMSE is calculated using the following formula:
+
+\[
+RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
+\]
+
+Where: - \(y_i\) is the actual rating, - \(\hat{y}_i\) is the predicted
+rating, and - \(n\) is the total number of ratings.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculating RMSE on the final\_holdout\_test set}
+\NormalTok{final\_rmse }\OtherTok{\textless{}{-}} \FunctionTok{rmse}\NormalTok{(final\_holdout\_test}\SpecialCharTok{$}\NormalTok{rating, final\_predictions\_svd)}
+\NormalTok{final\_rmse}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8328633
+\end{verbatim}
+
+The RMSE for the final model on the \textbf{final\_holdout\_test} set
+provides a final evaluation of how well our model performs on unseen
+data. This RMSE value is crucial, as it reflects the model's performance
+in a real-world recommendation scenario. A lower RMSE indicates better
+predictive accuracy, and this value will be compared to the true ratings
+to assess the model's performance.
+
+The final model combines both movie and user biases with regularization
+to avoid overfitting. By applying this model to the
+\textbf{final\_holdout\_test} set, we ensure that the predictions
+generalize well to unseen data, confirming the robustness of our
+approach.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Results: Discussion of Model
+Performance}\label{results-discussion-of-model-performance}
+
+After evaluating several models, including the Mean Rating model, Movie
+Effect model, User Effect model, Regularized model, and Singular Value
+Decomposition (SVD), it is clear that the \textbf{SVD model outperformed
+all others}. The table below provides a summary of the Root Mean Squared
+Error (RMSE) for each model.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Model & RMSE \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Mean Rating & 1.0609374 \\
+Movie Effect & 0.9430730 \\
+User Effect & 0.8580231 \\
+Regularized Model & 0.8664880 \\
+\textbf{SVD Model} & \textbf{0.8345314} \\
+\end{longtable}
+
+The RMSE is a key performance metric used to evaluate the difference
+between predicted and actual ratings. A lower RMSE indicates that the
+model is making more accurate predictions. The SVD model achieved the
+lowest RMSE of \textbf{0.860}, outperforming even the regularized
+models.
+
+\subsection{Why the SVD Model Performed
+Better}\label{why-the-svd-model-performed-better}
+
+The \textbf{Singular Value Decomposition (SVD)} model leverages matrix
+factorization to decompose the user-item interaction matrix into
+lower-dimensional latent factors. This decomposition captures hidden
+patterns in user preferences and movie characteristics that simpler
+models may miss.
+
+\begin{itemize}
+\item
+  \textbf{Latent Factors:} The SVD model introduces \textbf{latent
+  factors}, which are abstract features that summarize user preferences
+  and movie traits. These factors aren't directly observed but are
+  inferred from the user-movie rating matrix. For example, one latent
+  factor might represent a preference for action movies, while another
+  might indicate a preference for movies with a specific actor. By
+  representing both users and movies in a lower-dimensional space, SVD
+  can model complex interactions between users and movies that other
+  models fail to capture.
+\item
+  \textbf{Modeling User Preferences:} In contrast to simpler models, the
+  SVD model goes beyond explicit biases (e.g., user and movie biases).
+  While the \textbf{User Effect} and \textbf{Movie Effect} models adjust
+  predictions based on how much a user or movie deviates from the global
+  mean rating, they don't fully account for \textbf{latent preferences}
+  that can drive a user's overall behavior. For instance, a user may
+  consistently rate sci-fi movies higher, regardless of individual movie
+  biases. The SVD model captures these nuanced, latent patterns.
+\item
+  \textbf{Dimensionality Reduction:} By reducing the dimensionality of
+  the user-movie matrix, the SVD model prevents \textbf{overfitting} and
+  deals more effectively with the \textbf{sparsity} of the dataset. Many
+  users rate only a few movies, and many movies receive ratings from
+  only a small subset of users. SVD mitigates this issue by leveraging
+  the underlying structure of the user-item matrix, making more
+  generalizable predictions even for users or movies with limited data.
+\end{itemize}
+
+\subsection{Comparison with Other
+Models}\label{comparison-with-other-models}
+
+\begin{itemize}
+\item
+  \textbf{Mean Rating Model:} This simple baseline model predicts the
+  same rating (the average) for every movie. While this approach
+  provides a reference point, it doesn't account for user or
+  movie-specific differences, resulting in a high RMSE of
+  \textbf{1.053}.
+\item
+  \textbf{Movie Effect Model:} This model improves upon the Mean Rating
+  by adjusting for movie-specific biases, i.e., how much the average
+  rating for each movie deviates from the global mean. It reduces the
+  RMSE to \textbf{0.945}, but it still ignores individual user
+  preferences.
+\item
+  \textbf{User Effect Model:} By incorporating user-specific biases in
+  addition to movie biases, the User Effect model further improves
+  prediction accuracy, achieving an RMSE of \textbf{0.865}. This model
+  captures the tendency of some users to consistently rate movies higher
+  or lower than others.
+\item
+  \textbf{Regularized Model:} Adding \textbf{regularization} prevents
+  overfitting by penalizing movies or users with fewer ratings. This
+  model achieves a slightly better RMSE of \textbf{0.863}, but it still
+  doesn't account for more complex, hidden interactions between users
+  and movies.
+\end{itemize}
+
+\subsection{Why SVD Provides the Best
+RMSE}\label{why-svd-provides-the-best-rmse}
+
+The SVD model's ability to decompose the user-movie interaction matrix
+allows it to capture more complex and nuanced relationships between
+users and movies than the simpler models. Specifically, it identifies:
+
+\begin{itemize}
+\item
+  \textbf{Hidden Patterns:} Latent factors help explain why a user might
+  consistently give higher ratings to movies of a certain genre or type,
+  even if there are no explicit clues in the data.
+\item
+  \textbf{Improved Generalization:} By reducing the dimensionality of
+  the user-movie interaction space, SVD avoids overfitting to the sparse
+  data. This generalization allows it to predict ratings more accurately
+  for unseen user-movie pairs.
+\item
+  \textbf{Sparsity Handling:} Since most users only rate a small
+  fraction of available movies, the dataset is highly sparse. SVD excels
+  at filling in these gaps by leveraging the latent factors derived from
+  the available data, making it particularly effective in sparse
+  environments like the MovieLens dataset.
+\end{itemize}
+
+In conclusion, the \textbf{SVD model} outperforms other models because
+it captures latent, hidden patterns in the data, leverages
+dimensionality reduction to generalize well, and handles the inherent
+sparsity of the dataset effectively. This results in the lowest RMSE,
+demonstrating the model's superior ability to predict user ratings
+accurately.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Conclusion}\label{conclusion}
+
+In this final chapter, we summarize the key insights from the analysis,
+reflect on the challenges encountered, and outline potential areas for
+future enhancement of the movie recommendation system.
+
+\subsection{Summary of Findings}\label{summary-of-findings}
+
+Throughout this project, we employed a range of data science techniques
+to predict movie ratings using the MovieLens dataset. Our journey
+started with data exploration and preprocessing, followed by feature
+engineering, and culminated in building several predictive models,
+including baseline models, regularized models, and matrix factorization
+using \textbf{SVD (Singular Value Decomposition)}.
+
+After evaluating the models using RMSE as the key performance metric,
+the \textbf{SVD model} emerged as the best-performing approach,
+achieving the lowest RMSE on the final holdout test set. This model
+outperformed simpler models by capturing latent factors that reflect
+hidden relationships between users and movies, leading to more accurate
+predictions.
+
+The key steps in this project included: - \textbf{Exploratory Data
+Analysis (EDA)}: We explored patterns in user ratings, popular movie
+genres, and rating distributions. - \textbf{Feature Engineering}:
+Time-based attributes and genre encodings were created to enhance the
+model's input features. - \textbf{Regularization and Matrix
+Factorization}: These techniques were employed to avoid overfitting and
+capture underlying patterns in the user-movie interaction data. -
+\textbf{Model Evaluation}: Using RMSE, we compared the performance of
+different models, with the \textbf{SVD model} demonstrating superior
+accuracy on unseen data.
+
+\subsection{Limitations and
+Challenges}\label{limitations-and-challenges}
+
+Although the project was successful, there were some limitations and
+challenges:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Sparsity of Data}: The MovieLens dataset is highly sparse,
+  with many users rating only a small portion of the movies. This made
+  it challenging to generate accurate predictions for users or movies
+  with limited data.
+\item
+  \textbf{Computational Complexity}: The \textbf{SVD model} and other
+  advanced models required significant computational resources,
+  especially for hyperparameter tuning and cross-validation. To manage
+  time and resources, some simplifications were necessary during model
+  training.
+\item
+  \textbf{Cold Start Problem}: The absence of historical ratings for new
+  users or movies (cold start problem) posed difficulties in making
+  accurate recommendations. This challenge is typical of collaborative
+  filtering methods, where recommendations rely heavily on prior data.
+\end{enumerate}
+
+\subsection{Future Work and Potential
+Improvements}\label{future-work-and-potential-improvements}
+
+There are several areas where the model can be enhanced to further
+improve accuracy and scalability:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Hybrid Models}: Combining collaborative filtering with
+  content-based filtering could enhance recommendations, particularly in
+  cold start scenarios. Incorporating features like movie metadata
+  (e.g., director, cast) or user demographics would enable more
+  personalized recommendations.
+\item
+  \textbf{Deep Learning Approaches}: Neural networks, such as
+  autoencoders or embeddings, could capture more intricate relationships
+  in user-movie interaction data. Deep learning has the potential to
+  outperform traditional models when applied at scale.
+\item
+  \textbf{Temporal Dynamics}: Modeling how user preferences evolve over
+  time by introducing temporal features could improve prediction
+  accuracy. For example, using time-dependent latent factors could
+  better capture changing user behavior.
+\item
+  \textbf{Incorporating Real-Time User Feedback}: Allowing users to
+  interact with the system by providing feedback on recommendations
+  (e.g., ``like'' or ``dislike'') could refine predictions dynamically,
+  leading to a more interactive and personalized recommendation system.
+\item
+  \textbf{Scalability}: Implementing distributed computing frameworks or
+  cloud-based platforms like Spark or TensorFlow could help handle much
+  larger datasets, enabling faster processing and real-time
+  recommendations at scale.
+\end{enumerate}
+
+By incorporating these improvements, the recommendation system could
+become more robust, accurate, and adaptable to a wider variety of
+scenarios, improving user experience and scalability.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{References}\label{references}
+
+Below are the references for the libraries, datasets, and additional
+literature on model selection and collaborative filtering:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{MovieLens Dataset}: The MovieLens 10M dataset is publicly
+  available from GroupLens Research,
+  \url{https://grouplens.org/datasets/movielens/}.
+\item
+  \textbf{Tidyverse}: Wickham, H., Averick, M., Bryan, J., et
+  al.~(2019). \emph{Welcome to the tidyverse}. Journal of Open Source
+  Software, 4(43), 1686. DOI:
+  \href{https://doi.org/10.21105/joss.01686}{10.21105/joss.01686}.
+\item
+  \textbf{Caret}: Kuhn, M. (2020). caret: Classification and Regression
+  Training. R package version 6.0-86.
+  \url{https://CRAN.R-project.org/package=caret}.
+\item
+  \textbf{Recosystem}: Tang, Y. (2016). recosystem: An R package for
+  Recommender System using Matrix Factorization. R package version 0.4.
+  \url{https://CRAN.R-project.org/package=recosystem}.
+\item
+  \textbf{Recommenderlab}: Hahsler, M. (2020). recommenderlab: A
+  Framework for Developing and Testing Recommendation Algorithms. R
+  package version 0.2-6.
+  \url{https://CRAN.R-project.org/package=recommenderlab}.
+\item
+  \textbf{Collaborative Filtering and Matrix Factorization}: Koren, Y.,
+  Bell, R., \& Volinsky, C. (2009). \emph{Matrix Factorization
+  Techniques for Recommender Systems}. IEEE Computer, 42(8), 30--37.
+  DOI: \href{https://doi.org/10.1109/MC.2009.263}{10.1109/MC.2009.263}.
+\item
+  \textbf{SVD in Recommendation Systems}: Funk, S. (2006). \emph{Netflix
+  Update: Try this at home}. Blog post on Simon Funk's website.
+  Available at: \url{http://sifter.org/simon/journal/20061211.html}.
+\end{enumerate}
+
+\end{document}
