@@ -1,19 +1,19 @@
 # HarvardX PH125.9x Data Science Capstone
-Capstone Project of HarvardX Professional Data Science
+Capstone Projects of the HarvardX Professional Data Science Program
 
 This repository contains my capstone projects for the HarvardX Professional Data Science program. The folder structure is as follows:
 
-- **MovieLens**: This folder contains the files for the MovieLens Capstone Project, which is a mandatory component of the program.
-- **[Other Project]**: (To be added later) This folder will contain another capstone project based on user data.
+- **MovieLens**: Contains files for the MovieLens Capstone Project, a mandatory component of the program.
+- **VegetationResponse**: Contains files for the Vegetation Response Capstone Project, which focuses on predicting vegetation health (NDVI) based on rainfall data using various machine learning models.
 
 ## Folders
 
 ### `MovieLens`
-The **MovieLens** folder includes the Rmd, PDF, and R script files for the MovieLens Capstone Project, along with a detailed report on the analysis and modeling of the MovieLens dataset. The project implements multiple models to predict movie ratings and evaluate the performance using RMSE (Root Mean Squared Error).
+The **MovieLens** folder includes the Rmd, PDF, and R script files for the MovieLens Capstone Project. This project analyzes and models the MovieLens dataset using multiple techniques to predict movie ratings. The evaluation metric used is RMSE (Root Mean Squared Error).
 
-### `[Other Project]`
-A placeholder for the second project, which will use user-provided data for analysis. The project specifics will be added once the data and methodology are finalized.
+### `VegetationResponse`
+The **VegetationResponse** folder contains the Rmd, PDF, and R script files for the Vegetation Response Capstone Project. This project aims to predict **NDVI** (Normalized Difference Vegetation Index) using rainfall data and evaluates model performance based on **RMSE** and **MAE**. The analysis includes models like Random Forest, Linear Regression, and ARIMAX, with visualizations that help interpret the results.
 
 ---
 
-Feel free to explore the content of each folder. Feedback is always welcome!
+Feel free to explore the content of each folder. Any feedback is greatly appreciated!
